@@ -1,0 +1,150 @@
+\documentclass[a4paper,14pt]{extarticle} \usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{fp}
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.5cm]{geometry}
+
+% Fonte Caladea se existir, senão lmodern
+\IfFileExists{caladea.sty}{
+  \usepackage{caladea}
+}{
+  \usepackage{lmodern} }
+\usepackage{ragged2e}
+\usepackage{wasysym}
+\usepackage{graphicx}
+\usepackage[portuguese]{babel}
+\usepackage{wrapfig}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{rotating}
+\usepackage{titlesec}
+\usepackage{epigraph}
+\usepackage{dirtytalk}
+\usepackage{indentfirst} % Indenta o primeiro parágrafo após seções
+
+\author{
+  \href{https://t.me/tercoaovivo}{Canal Terço Diário Ao Vivo}
+}
+
+\title{
+  O Rosário
+}
+
+\date{}
+% Ajuste do recuo de parágrafo
+\setlength{\parindent}{1.5em}
+
+% Centralizar títulos
+\titleformat{\section}
+  {\normalfont\centering\bfseries\Large}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalfont\centering\bfseries\large}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+  {\normalfont\centering\bfseries}{\thesubsubsection}{1em}{}
+
+
+% -------------- Símbolos de Versículo e Resposta --------------
+% Definição do símbolo (a “barrinha” inclinada)
+\makeatletter
+\newcommand{\vers@resp@sym}{%
+  \raisebox{0.2ex}{\rotatebox[origin=c]{-20}{$\m@th\rceil$}}%
+}
+% macro interna que sobrepõe a barrinha e a letra V ou R
+\newcommand{\vers@resp}[2]{%
+  {\ooalign{%
+     \hidewidth\kern#1\vers@resp@sym\hidewidth\cr
+     #2\cr
+  }}%
+}
+% comandos públicos \versicle e \response
+\DeclareRobustCommand{\versicle}{\vers@resp{-0.1em}{V}}
+\DeclareRobustCommand{\response}{\vers@resp{0pt}{R}}
+\makeatother
+% ^------------- Símbolos de Versículo e Resposta -------------^
+
+% % Rodapé com imagem e página
+% \pagestyle{fancy}
+% % ---- Cabeçalho ------------
+% \fancyhf[C]{
+% \setlength{\headheight}{17.0pt}
+% }
+% % ----- Rodapé --------------
+% \fancyfoot[LO,LE]{%
+%   \includegraphics[scale=0.2]{assets/cross.png}\quad
+%   \textit{Santo Terço Diário}
+% }
+
+\begin{document}
+
+ % variáveis das contas 
+\newdimen\ypos
+\ypos=-1.5cm
+
+\newcount\numConta
+\numConta=1
+
+
+\newcommand{\conta}[1]{%
+  \ifnum\numConta>9
+    \def\xshift{-0.475}%
+  \else
+    \def\xshift{-0.35}%
+  \fi
+
+  % círculos e nodes da conta
+  \draw[fill=white, thick] (0,\the\ypos) circle (0.3);
+  \node at (\xshift,\the\ypos) {\the\numConta};
+  \node at (1,\the\ypos) {\textbf{Rezemos esta \nameref{ave-maria}} #1};
+
+  % abaixa a posição y para a próxima conta
+  \advance\ypos by -1.7cm
+  \advance\numConta by 1
+
+  % reseta o contador quando passar de 10 contas.
+  \ifnum\numConta>10
+      \setcounter{numConta}{1}
+  \fi
+}
+
+\newcommand{\linha}[0]{
+\draw[gray!70, line width=0.6pt] (0,0) -- (0,-18);
+% Conta inicial (Pai Nosso)
+\draw[fill=white, thick] (0,0) circle (0.5);
+\node at (1,0) {\textbf{Rezemos este \nameref{pai-nosso}} pela essencial Felicidade de Deus...};
+}
+
+% última conta
+\newcommand{\jaculatorias}[0]{
+  \draw[fill=white, thick] (0,\the\ypos) circle (0.5);
+  \node at (1,\the\ypos) {\textbf{Finaliza-se com \nameref{oracoes-jaculatorias}}};
+}
+
+\vfill
+\maketitle
+\vfill
+
+\thispagestyle{empty}
+\newpage
+
+\tableofcontents
+
+
+% \par\noindent\rule{\textwidth}{0.4pt}
+
+% \tableofcontents
+
+\newpage
+\input{partes/como-utilizar.tex}
+\input{partes/como-rezar.tex}
+\input{partes/oracoes.tex}
+\input{partes/oferecimento.tex}
+\input{misterios/gozosos.tex}
+\input{misterios/dolorosos.tex}
+\input{misterios/gloriosos.tex}
+\input{partes/encerramento.tex}
+\input{partes/referencias.tex}
+
+\end{document}
