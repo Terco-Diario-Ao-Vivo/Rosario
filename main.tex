@@ -3,7 +3,7 @@
 \usepackage{multicol}
 \usepackage{fp}
 \usepackage[T1]{fontenc}
-\usepackage[margin=2.5cm]{geometry}
+\usepackage[margin=2cm]{geometry}
 
 % Fonte Caladea se existir, senão lmodern
 \IfFileExists{caladea.sty}{
@@ -15,13 +15,17 @@
 \usepackage{graphicx}
 \usepackage[portuguese]{babel}
 \usepackage{wrapfig}
+\usepackage{verse}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage{xcolor}
 \usepackage{rotating}
 \usepackage{titlesec}
 \usepackage{epigraph}
-\usepackage{dirtytalk}
+ \usepackage[
+    leftsub = \flqq{},% 
+    rightsub = \frqq{},% 
+]{dirtytalk}
 \usepackage{indentfirst} % Indenta o primeiro parágrafo após seções
 
 \author{
@@ -49,6 +53,7 @@
 
 % -------------- Símbolos de Versículo e Resposta --------------
 % Definição do símbolo (a “barrinha” inclinada)
+
 \makeatletter
 \newcommand{\vers@resp@sym}{%
   \raisebox{0.2ex}{\rotatebox[origin=c]{-20}{$\m@th\rceil$}}%
@@ -120,7 +125,7 @@
 % última conta
 \newcommand{\jaculatorias}[0]{
   \draw[fill=white, thick] (0,\the\ypos) circle (0.5);
-  \node at (1,\the\ypos) {\textbf{Finaliza-se com \nameref{oracoes-jaculatorias}}};
+  \node at (1,\the\ypos) {Glória ao Pai, ao Filho e ao Espírito Santo, como era no princípio, agora e sempre, Amém!\\Finaliza-se com \textbf{\nameref{oracoes-jaculatorias}}};
 }
 
 \vfill

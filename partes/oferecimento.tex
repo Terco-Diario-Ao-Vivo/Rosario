@@ -12,44 +12,58 @@ Rezamos também pelas seguintes intenções anexas… \textbf{[mencionar as inte
   every node/.style={anchor=west, align=justify, text width=13cm, font=\fontsize{12}{11}\selectfont},
     ]
 
-  \coordinate (center) at (0,-.7);
+  \coordinate (center) at (0,-.2);
   \coordinate (cross-origin) at (0,-5);
 
   % linha da cruz
   \draw[gray!70] (cross-origin) -- (center);
-  \draw[dashed, gray!70] (center) -- ++(0,.4)
+  \draw[dashed, gray!70] (center) -- ++(0,1.5);
 
-  \contas
-  \draw[fill=white] (0,-1) coordinate(conta1) circle (0.25)  
+  % contas
+
+  %% jaculatórias
+  \draw[fill=white] (center) ++ (0,0.4) coordinate(gloria) circle (0.4);
+
+  \draw[fill=white] (0,-1) coordinate(conta1) circle (0.25)
   ++(0, -1) coordinate(conta2) circle (0.25) 
   ++(0, -1) coordinate (conta3) circle (0.25) 
-  ++(0, -1.125) coordinate(conta4) circle (0.4)
+  ++(0, -1.125) coordinate(conta4) circle (0.4);
 
   % cruz
-  \draw[black, thick] (cross-origin) -- ++(0.125, 0) -- ++(0,-.25) -- ++(.25,0) -- ++(0,-.25) -- ++ (-.25,0) -- ++(0, -.75) -- ++(-.25,0) -- ++ (0,.75) --++ (-.25,0) -- ++ (0,.25) -- ++ (.25,0) -- ++ (0,.25) -- (cross-origin) 
+  \draw[black, thick] (cross-origin) -- ++(0.125, 0) -- ++(0,-.25) -- ++(.25,0) -- ++(0,-.25) -- ++ (-.25,0) -- ++(0, -.75) -- ++(-.25,0) -- ++ (0,.75) --++ (-.25,0) -- ++ (0,.25) -- ++ (.25,0) -- ++ (0,.25) -- (cross-origin);
 
   \node at (cross-origin) [above=.8cm , right=0.8cm] {
 Professemos a nossa Fé na presença de Deus; no Evangelho; e como sinal de obediência ao Papa Leão como Vigário de Jesus Cristo, rezando o \textbf{\nameref{creio}}. Creio...
-  }
+  };
 
-  \node at (conta4) [right=0.8cm] {Na Unidade de um só Deus, vivo e verdadeiro rezemos o \textbf{\nameref{pai-nosso}}, Pai Nosso...}
+  \node at (conta4) [right=0.8cm] {Na Unidade de um só Deus, vivo e verdadeiro rezemos o \textbf{\nameref{pai-nosso}}, Pai Nosso...};
 
   \node at (conta3) [, right=0.8cm] {
     \versicle. O Anjo do Senhor anunciou a Maria \\
     \response. E Ela concebeu pelo Espírito Santo\\
     \textbf{\nameref{ave-maria}…}
-  }
+  };
   \node at (conta2) [, right=0.8cm] {
-    \versicle. O Anjo do Senhor anunciou a Maria \\
-    \response. E Ela concebeu pelo Espírito Santo\\
+    \versicle. Eis aqui a serva do Senhor\\
+    \response. Faça-se em mim segundo a Vossa Palavra\\
     \textbf{\nameref{ave-maria}…}
-  }
+  };
 
   \node at (conta1) [, right=0.8cm] {
-    \versicle. O Anjo do Senhor anunciou a Maria \\
-    \response. E Ela concebeu pelo Espírito Santo\\
+    \versicle. E o Verbo Divino se fez carne\\
+    \response. E habitou entre nós.\\
     \textbf{\nameref{ave-maria}…}
-  }
+  };
+
+  \node at (conta1) [, right=0.8cm] {
+    \versicle. E o Verbo Divino se fez carne\\
+    \response. E habitou entre nós.\\
+    \textbf{\nameref{ave-maria}…}
+  };
+
+  \node at (gloria) [, right=0.8cm] {
+    Glória ao Pai, ao Filho e ao Espírito Santo, como era no princípio, agora e sempre, Amém! Finaliza-se com \nameref{oracoes-jaculatorias}.
+  };
 
   \end{tikzpicture}
 \end{center}
