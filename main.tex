@@ -45,13 +45,13 @@
 
 % Centralizar títulos
 \titleformat{\section}
-  {\normalfont\centering\bfseries\Large}{\thesection}{1em}{}
+{\normalfont\centering\bfseries\Large}{\thesection -}{.2em}{}
 
 \titleformat{\subsection}
-  {\normalfont\centering\bfseries\large}{\thesubsection}{1em}{}
+  {\normalfont\centering\bfseries\large}{}{1em}{}
 
 \titleformat{\subsubsection}
-  {\normalfont\centering\bfseries}{\thesubsubsection}{1em}{}
+  {\normalfont\centering\bfseries}{}{1em}{}
 
 
 % -------------- Símbolos de Versículo e Resposta --------------
@@ -95,6 +95,13 @@
 \newcount\numConta
 \numConta=1
 
+\newcount\mist
+\mist=1
+
+\newcommand{\misterio}[1]{
+  \subsection{\the\mistº Mistério - #1}
+  \advance\mist by 1
+}
 
 \newcommand{\conta}[1]{%
   \ifnum\numConta>9
