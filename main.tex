@@ -112,9 +112,9 @@
   \advance\ypos by -1.7cm
   \advance\numConta by 1
 
-  % reseta o contador quando passar de 10 contas.
+  % Reseta o contador quando passar de 10 contas.
   \ifnum\numConta>10
-      \setcounter{numConta}{1}
+    \numConta=1
   \fi
 }
 
@@ -128,7 +128,7 @@
 % última conta
 \newcommand{\jaculatorias}[0]{
   \draw[fill=white, thick] (0,\the\ypos) circle (0.5);
-  \node at (1,\the\ypos) {Glória ao Pai, ao Filho e ao Espírito Santo, como era no princípio, agora e sempre, Amém!\\Finaliza-se com \textbf{\nameref{oracoes-jaculatorias}}};
+  \node at (1,\the\ypos) {Glória ao Pai, ao Filho e ao Espírito Santo, como era no princípio, agora e sempre, Amém!\\ Finaliza-se com as \textbf{\nameref{oracoes-jaculatorias}} prediletas.} ;
 }
 
 \vfill
